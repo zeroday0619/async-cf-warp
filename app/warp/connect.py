@@ -35,22 +35,7 @@ class Generator(Utils):
         return payloadString
     
     async def warp_data_generate(self, referrer):
-        x = 1
-        while True:
-            await asyncio.sleep(20)
-            async with aiohttp.ClientSession(headers=self.headers) as session:
-                async with session.post(url=await self.generate_url(), data=await self.generate_payload(referrer=referrer), headers=self.headers) as resp:
-                    status_code = resp.status
-            if status_code == 200:
-                result = {
-                    "status": True,
-                    "message": f"{x} GB"
-                }
-                yield result
-                x = x + 1
-            else:
-                result = {
-                    "status": False,
-                    "message": "ERROR"
-                }
-                yield result
+        async with aiohttp.ClientSession(headers=self.headers) as session:
+            async with session.post(url=await self.generate_url(), data=await self.generate_payload(referrer=referrer), headers=self.headers) as resp:
+                status_code = resp.status
+        return status_code
