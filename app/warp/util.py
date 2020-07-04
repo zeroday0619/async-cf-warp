@@ -2,7 +2,6 @@ import string
 import random
 
 class Utils:
-class Utils:
     @staticmethod
     async def genString(stringLength):
         try:
