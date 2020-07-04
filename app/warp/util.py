@@ -2,12 +2,19 @@ import string
 import random
 
 class Utils:
+class Utils:
     @staticmethod
     async def genString(stringLength):
-        letters = string.ascii_letters + string.digits
-        return ''.join(random.choice(letters) for i in range(stringLength))
-    
-    @staticmethod
+        try:
+            letters = string.ascii_letters + string.digits
+            return ''.join(random.choice(letters) for i in range(stringLength))
+        except Exception as error:
+            print(error)
+
+    @staticmethod		    
     async def digitString(stringLength):
-        digits = string.digits
-        return ''.join((random.choice(digits) for i in range(stringLength)))
+        try:
+            digit = string.digits
+            return ''.join((random.choice(digit) for i in range(stringLength)))    
+        except Exception as error:
+            print(error)	
