@@ -22,7 +22,7 @@ class Generator(Utils):
     async def generate_payload(self, referrer):
         install_id = await self.genString(11)
         payload = {
-            "key": "{}=".format(await self.genString(42)),
+            "key": "{}=".format(await self.genString(43)),
             "install_id": install_id,
             "fcm_token": "{}:APA91b{}".format(install_id, await self.genString(134)),
             "referrer": referrer,
